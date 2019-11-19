@@ -3,12 +3,14 @@ import numpy as np
 from sklearn.externals.joblib import dump, load
 
 X=[]
-def preprocess():
+def preprocess(Dataframe):
     max_seq = 324
     idx = [i for i in range(2, 52)]
     del idx[2::3]
     no_of_features = len(idx)
-    df = pandas.read_csv('Res/input.csv', index_col='Frames#')
+    df = Dataframe
+    # print(df)
+    # print(Dataframe)
     arr = np.array(df.values)
     arr = arr[:, idx]
     X = arr.tolist()
